@@ -9,6 +9,13 @@
                 <p class="text-muted">Masuk ke akun InventoryHub Anda</p>
             </div>
 
+            <?php if (!empty($success)): ?>
+                <div class="alert alert-success d-flex align-items-center mb-4" role="alert">
+                    <i class="bi bi-check-circle-fill me-2"></i>
+                    <div><?= htmlspecialchars($success) ?></div>
+                </div>
+            <?php endif; ?>
+
             <?php if (!empty($error)): ?>
                 <div class="alert alert-danger d-flex align-items-center mb-4" role="alert">
                     <i class="bi bi-exclamation-circle-fill me-2"></i>
@@ -21,7 +28,7 @@
                     <label for="email" class="form-label">Alamat Email</label>
                     <div class="input-group">
                         <span class="input-group-text bg-light border-end-0"><i class="bi bi-envelope text-muted"></i></span>
-                        <input type="email" name="email" id="email" class="form-control border-start-0 ps-0" placeholder="nama@contoh.com" required value="<?= isset($_POST['email']) ? htmlspecialchars($_POST['email']) : '' ?>">
+                        <input type="email" name="email" id="email" class="form-control border-start-0 ps-0" placeholder="nama@contoh.com" required value="<?= isset($_POST['email']) ? htmlspecialchars($_POST['email']) : (isset($email_preset) ? htmlspecialchars($email_preset) : '') ?>">
                     </div>
                 </div>
 

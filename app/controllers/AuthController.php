@@ -23,6 +23,17 @@ class AuthController extends Controller
         }
 
         $error = '';
+        $success = '';
+        $email_preset = '';
+
+        if (isset($_SESSION['reg_success'])) {
+            $success = $_SESSION['reg_success'];
+            unset($_SESSION['reg_success']);
+        }
+        if (isset($_SESSION['reg_email'])) {
+            $email_preset = $_SESSION['reg_email'];
+            unset($_SESSION['reg_email']);
+        }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -58,7 +69,9 @@ class AuthController extends Controller
         }
 
         $this->view('auth/login', [
-            'error' => $error
+            'error' => $error,
+            'success' => $success,
+            'email_preset' => $email_preset
         ]);
     }
 
@@ -70,7 +83,6 @@ class AuthController extends Controller
         }
 
         $error = '';
-        $success = '';
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -107,7 +119,10 @@ class AuthController extends Controller
 
                     if ($this->userModel->register($nama, $email, $password)) {
 
-                        $success = "Registrasi berhasil. Silakan login.";
+                        $_SESSION['reg_success'] = "Registrasi berhasil! Silakan masuk dengan akun Anda.";
+                        $_SESSION['reg_email'] = $email;
+                        header('Location: ' . BASE_URL . 'login');
+                        exit;
 
                     } else {
 
@@ -122,8 +137,7 @@ class AuthController extends Controller
         }
 
         $this->view('auth/register', [
-            'error' => $error,
-            'success' => $success
+            'error' => $error
         ]);
     }
 
