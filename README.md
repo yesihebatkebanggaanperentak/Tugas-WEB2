@@ -157,10 +157,14 @@ Database menggunakan beberapa tabel utama:
 
 ## Pengembang
 
-Nama Mahasiswa : Yesi Putri
+Nama Mahasiswa : Nelaa nd Yesi 4ever
 
 Mata Kuliah : Pengembangan Aplikasi Web Dinamis
 
-Universitas : _(Isi sesuai universitasmu)_
+Universitas : _Universitas Merangin
+
 
 Tahun : 2026 
+
+# ATURAN!
+ jangan ubah UI TOTAL  KETIKA AKU INGIN MENAMBAH FITUR

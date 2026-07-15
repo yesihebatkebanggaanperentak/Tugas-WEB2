@@ -2,4 +2,4 @@
 
 define('BASE_PATH', __DIR__ . '/../');
 
-define('BASE_URL', 'http://localhost/InventoryHub/');
+define('BASE_URL', 'http://localhost:8080/InventoryHub/');
